@@ -28,10 +28,31 @@ def hello_world():
     return "Hello World~~~"
 
 
-@app.route('/alimama')
-def cov_url():
+@app.route('/bag')
+def bag_tburl():
     iid = request.args.get('id')
     pid = request.args.get('pid')
+    access_token="700021012020351e205ff164a70608898659a76b2a547ffde8b1e5afa68a3c5dde19a972503084439"
+
+
+    if pid:
+        t = pid.split('_')
+        guide_id = t[2]
+        ad_zone_id = t[3]
+
+        res = apply_commission(iid, guide_id, ad_zone_id,access_token)
+        if res is True:
+            return 'pass'
+        else:
+            coupon_click_url = res['coupon_click_url']
+            
+            return coupon_click_url
+
+@app.route('/tth')
+def tth_tburl():
+    iid = request.args.get('id')
+    pid = request.args.get('pid')
+    access_token = "700021012020351e205ff164a70608898659a76b2a547ffde8b1e5afa68a3c5dde19a972503084439"
 
 
     if pid:
@@ -47,7 +68,7 @@ def cov_url():
             tburl = '{}&activityId={}'.format(coupon_click_url, goods['quan_id'])
             return tburl
 
-    return 'hello %s'
+
 
 
 if __name__ == '__main__':
