@@ -45,7 +45,7 @@ def bag_tburl():
             return 'pass'
         else:
             coupon_click_url = res['coupon_click_url']
-            
+
             return coupon_click_url
 
 @app.route('/tth')
@@ -72,4 +72,4 @@ def tth_tburl():
 
 
 if __name__ == '__main__':
-    app.run('10.47.133.104', 8899)
+    app.run('0.0.0.0', 8899)
