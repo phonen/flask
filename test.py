@@ -44,6 +44,7 @@ def bag_tburl():
         if res is True:
             return 'pass'
         else:
+            print res
             coupon_click_url = res['coupon_click_url']
 
             return coupon_click_url
